@@ -4,7 +4,8 @@ import Select from "react-select";
 
 const App = () => {
   let [countries, setContries] = useState([]);
-  let [selectedIndex, setIndex] = useState(-1);
+  let [currentCountry, setCurrentCountry] = useState(null);
+  let [selectedCountry, setSelectedCountry] = useState(null);
   let [timezones, settimezones] = useState([""]);
   useEffect(() => {
     let fetch = async () => {
@@ -26,17 +27,28 @@ const App = () => {
     };
     fetch();
   }, []);
-  let handleClick = (e) => {
-    e.preventDefault();
-    settimezones(countries[e.target.value].timezones);
-    setIndex(e.target.value);
-    console.log(timezones);
+  let handleClick = (selectedOption) => {
+    setSelectedCountry(selectedOption);
+
+    settimezones(countries[selectedCountry.value].timezones);
   };
+  const options = countries.map((country, index) => ({
+    value: index,
+    label: country.name.common,
+  }));
 
   return (
     <form action="" className="container">
       Enter country name:
-      <select id="country" className="form-select" onChange={handleClick}>
+      <Select
+        id="country"
+        onChange={handleClick}
+        className="form-select"
+        options={options}
+        value={selectedCountry}
+        placeholder="Select a country"
+        isSearchable
+      >
         {countries.map((val, ind) => {
           return (
             <option value={ind} key={ind}>
@@ -44,18 +56,20 @@ const App = () => {
             </option>
           );
         })}
-      </select>
-      {timezones.map((val, ind) => {
-        return (
-          <>
-            <h1 key={ind}>{val}</h1>
-          </>
-        );
-      })}
-      <br />
-      <h1 className="mb-4">{selectedIndex>=0?countries[selectedIndex].capital:null}</h1>
-      <h1>{selectedIndex>0?countries[selectedIndex].region:null}</h1>
-       <img src={selectedIndex>0?countries[selectedIndex].flags.png:null} alt="" />
+      </Select>
+      {selectedCountry && (
+        <div className="container">
+          <p>{selectedCountry.index}</p>
+          <h1>{countries[selectedCountry.value].name.common}</h1>
+          {timezones.map((val, ind) => {
+            return (
+              <>
+                <h1>{val}</h1>x
+              </>
+            );
+          })}
+        </div>
+      )}
     </form>
   );
 };
