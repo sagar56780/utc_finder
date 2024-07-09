@@ -1,0 +1,76 @@
+/* Custom Styles */
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f0f0f0;
+    /* Light gray background */
+}
+
+.container {
+    background-color: #ffffff;
+    /* White container background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+}
+
+h1 {
+    font-weight: 700;
+    /* Bold font for headings */
+    color: #333333;
+    /* Dark gray for headings */
+}
+
+.text-primary {
+    color: #007bff;
+    /* Primary blue color */
+}
+
+.text-secondary {
+    color: #6c757d;
+    /* Gray color for secondary text */
+}
+
+.form-select {
+    border-color: #007bff;
+    /* Blue border for select */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    /* Light shadow on focus */
+}
+
+.form-select:focus {
+    border-color: #0056b3;
+    /* Darker blue border on focus */
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.4);
+    /* Stronger shadow on focus */
+}
+
+.border {
+    border: 2px solid #007bff;
+    /* Blue border */
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+    /* Light gray background */
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+    /* White background */
+}
+
+.shadow-lg {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1) !important;
+    /* Large shadow */
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1) !important;
+    /* Small shadow */
+}
+
+.rounded {
+    border-radius: 0.5rem !important;
+    /* Slightly rounded corners */
+}
